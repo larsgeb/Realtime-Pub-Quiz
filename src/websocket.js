@@ -1,5 +1,5 @@
 import {theStore} from './index'
-import {URL, PORT} from './config'
+import {URL, PORT, WEBSOCKET} from './config'
 import {
     createCurrentCategoryAction, createCurrentQuestionAction, createCurrentQuestionAnswerAction,
     getGameRoomTeamsAction,
@@ -13,20 +13,16 @@ import {
 } from "./action-reducers/createScorebord-actionReducer";
 
 const serverHostname = `${URL.replace(/^http/, 'ws')}:${PORT}`;
-console.log(`Attempting to connect to: ${serverHostname}`);
 let theSocket;
 
 export function openWebSocket() {
-    console.log(`Attempting to connect to: ${serverHostname}`);
     if (theSocket) {
-        theSocket.onerror = function(e){
-            console.log(e);
-        };
+        theSocket.onerror = null;
         theSocket.onopen = null;
         theSocket.onclose = null;
         theSocket.close();
     }
-    theSocket = new WebSocket(serverHostname);
+    theSocket =  new WebSocket(serverHostname);
 
     // this method is not in the official API, but it's very useful.
     theSocket.sendJSON = function (data) {
