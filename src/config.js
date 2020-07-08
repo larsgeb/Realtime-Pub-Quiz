@@ -1,5 +1,8 @@
 //SERVER URL + PORT
-const URL = "http://localhost";
+const URL = process.env.API_URL || "http://localhost";
 const PORT = 3001;
 
-module.exports = {URL, PORT};
+console.log(URL);
+console.log(PORT);
+
+module.exports = { URL, PORT };

@@ -88,7 +88,7 @@ class CategorieenUI extends React.Component {
 
     render() {
         let startRoundButton;
-        if (this.state.selectedCategories.length === 3) {
+        if (this.state.selectedCategories.length === 1) {
             startRoundButton = (
                 <Button variant="danger" type="submit" onClick={() => {
                     startRound(this.props.gameRoom, this.state.selectedCategories)
