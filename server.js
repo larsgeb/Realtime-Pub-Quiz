@@ -14,12 +14,11 @@ const PORT = process.env.PORT;
 const DB = process.env.DB;
 
 var dbConfig;
-try {
-  dbConfig = require("./config");
-} catch (e) {
-  if (e instanceof Error && e.code === "MODULE_NOT_FOUND")
+
+if (USERNAME && PASSWORD && HOST && PORT && DB) {
     dbConfig = { USERNAME, PASSWORD, HOST, PORT, DB };
-  else throw e;
+} else {
+  dbConfig = require("./config");
 }
 
 const app = express();
