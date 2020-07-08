@@ -21,8 +21,8 @@
     "redux": "^4.0.4"
   },
   "scripts": {
-    "start": "npm install -g serve",
-    "build": "npm run build"
+    "start": "npm install -g serve; serve -s build",
+    "build": "npm install"
   },
   "eslintConfig": {
     "extends": "react-app"
