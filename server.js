@@ -6,7 +6,20 @@ const session = require('express-session');
 const express = require('express');
 const cors = require('cors');
 const WebSocket = require('ws');
-const dbConfig = require('./config');
+
+USERNAME = process.env.USERNAME;
+PASSWORD = process.env.PASSWORD;
+HOST = process.env.HOST;
+PORT = process.env.PORT;
+DB = process.env.DB;
+
+try {
+  const dbConfig = require("./config");
+} catch (e) {
+  if (e instanceof Error && e.code === "MODULE_NOT_FOUND")
+    const dbConfig = { USERNAME, PASSWORD, HOST, PORT, DB };
+  else throw e;
+}
 
 const app = express();
 

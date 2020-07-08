@@ -7,6 +7,21 @@ require('../database/model/questions');
 const Games = mongoose.model("Games");
 const Questions = mongoose.model("Questions");
 
+// or, for inserting large batches of documents
+Questions.remove({}, function (err) {
+  console.log("collection removed");
+});
+Questions.insertMany(
+  [
+    {
+      question: "1. Wie is deze man?",
+      answer: "Rapper steen",
+      category: "Stenen",
+    },
+  ],
+  function (err) {}
+);
+
 //Use the bodyParser middleware
 router.use(bodyParser.json());
 
