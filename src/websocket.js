@@ -12,7 +12,7 @@ import {
     createAddCurrentTeamsScoreboardAction, createIsAnsweredScoreboardAction,
 } from "./action-reducers/createScorebord-actionReducer";
 
-const serverHostname = `${URL}:${PORT}`;
+const serverHostname = `${URL.replace(/^http/, 'ws')}:${PORT}`;
 let theSocket;
 
 export function openWebSocket() {
@@ -22,7 +22,7 @@ export function openWebSocket() {
         theSocket.onclose = null;
         theSocket.close();
     }
-    theSocket = new WebSocket(`ws://${serverHostname}`);
+    theSocket = new WebSocket(`${serverHostname}`);
 
     // this method is not in the official API, but it's very useful.
     theSocket.sendJSON = function (data) {
