@@ -12,7 +12,7 @@ import {
     createAddCurrentTeamsScoreboardAction, createIsAnsweredScoreboardAction,
 } from "./action-reducers/createScorebord-actionReducer";
 
-const serverHostname = `localhost:${PORT}`;
+const serverHostname = `${URL}:${PORT}`;
 let theSocket;
 
 export function openWebSocket() {
