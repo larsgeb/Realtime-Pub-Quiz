@@ -17,7 +17,9 @@ let theSocket;
 
 export function openWebSocket() {
     if (theSocket) {
-        theSocket.onerror = null;
+        theSocket.onerror = function(event) {
+            console.error("WebSocket error observed:", event);
+          };
         theSocket.onopen = null;
         theSocket.onclose = null;
         theSocket.close();
