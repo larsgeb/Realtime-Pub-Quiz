@@ -13,6 +13,7 @@ import {
 } from "./action-reducers/createScorebord-actionReducer";
 
 const serverHostname = `${URL.replace(/^http/, 'ws')}:${PORT}`;
+console.log(`Attempting to connect to: ${serverHostname}`)
 let theSocket;
 
 export function openWebSocket() {
