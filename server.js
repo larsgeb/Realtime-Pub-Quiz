@@ -329,7 +329,7 @@ websocketServer.on('connection', (socket, req) => {
 });
 
 // Start the server.
-const port = process.env.API_PORT || 3001;
+const port = process.env.PORT || 3001;
 httpServer.listen(port, () => {
     mongoose.connect(`mongodb+srv://${dbConfig.USERNAME}:${dbConfig.PASSWORD}@${dbConfig.HOST}/${dbConfig.DB}?retryWrites=true&w=majority`, {
         useNewUrlParser: true,
