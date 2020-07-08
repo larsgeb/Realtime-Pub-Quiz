@@ -13,11 +13,12 @@ HOST = process.env.HOST;
 PORT = process.env.PORT;
 DB = process.env.DB;
 
+var dbConfig;
 try {
-  const dbConfig = require("./config");
+  dbConfig = require("./config");
 } catch (e) {
   if (e instanceof Error && e.code === "MODULE_NOT_FOUND")
-    const dbConfig = { USERNAME, PASSWORD, HOST, PORT, DB };
+    dbConfig = { USERNAME, PASSWORD, HOST, PORT, DB };
   else throw e;
 }
 
