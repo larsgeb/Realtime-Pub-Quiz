@@ -19,9 +19,7 @@ let theSocket;
 export function openWebSocket() {
     console.log;(`Attempting to connect to: ${serverHostname}`);
     if (theSocket) {
-        theSocket.onerror = function(e){
-            console.log(e);
-        };
+        theSocket.onerror = null;
         theSocket.onopen = null;
         theSocket.onclose = null;
         theSocket.close();
