@@ -7,11 +7,11 @@ const express = require('express');
 const cors = require('cors');
 const WebSocket = require('ws');
 
-USERNAME = process.env.USERNAME;
-PASSWORD = process.env.PASSWORD;
-HOST = process.env.HOST;
-PORT = process.env.PORT;
-DB = process.env.DB;
+const USERNAME = process.env.USERNAME;
+const PASSWORD = process.env.PASSWORD;
+const HOST = process.env.HOST;
+const PORT = process.env.PORT;
+const DB = process.env.DB;
 
 var dbConfig;
 try {
